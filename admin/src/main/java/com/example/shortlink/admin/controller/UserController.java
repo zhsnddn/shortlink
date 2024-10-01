@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.example.shortlink.admin.common.convention.result.Result;
 import com.example.shortlink.admin.common.convention.result.Results;
 import com.example.shortlink.admin.dto.req.UserRegisterReqDTO;
+import com.example.shortlink.admin.dto.req.UserUpdateReqDTO;
 import com.example.shortlink.admin.dto.resp.UserActualRespDTO;
 import com.example.shortlink.admin.dto.resp.UserRespDTO;
 import com.example.shortlink.admin.service.UserService;
@@ -52,6 +53,16 @@ public class UserController {
     public Result<Void> register(@RequestBody UserRegisterReqDTO requestParam) {
         log.info("创建用户为:  {}", requestParam);
         userService.register(requestParam);
+        return Results.success();
+    }
+
+    /**
+     * 修改用户信息
+     */
+    @PutMapping("/api/short-link/v1/user")
+    public Result<Void> update(@RequestBody UserUpdateReqDTO requestParam) {
+        log.info("修改后用户信息为:  {}", requestParam);
+        userService.update();
         return Results.success();
     }
 

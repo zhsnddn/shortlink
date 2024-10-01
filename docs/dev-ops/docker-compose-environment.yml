@@ -31,7 +31,7 @@ services:
     image: alpine:3.18.2
     container_name: mysql-job-dbdata
     volumes:
-      - /var/lib/mysql
+      - /var/mysql/link.sql
 
   # phpmyadmin https://hub.docker.com/_/phpmyadmin
   phpmyadmin:

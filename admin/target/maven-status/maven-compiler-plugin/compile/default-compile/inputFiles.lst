@@ -15,6 +15,7 @@ D:\java-code\shortlink\admin\src\main\java\com\example\shortlink\admin\dto\resp\
 D:\java-code\shortlink\admin\src\main\java\com\example\shortlink\admin\controller\UserController.java
 D:\java-code\shortlink\admin\src\main\java\com\example\shortlink\admin\ShortLinkAdminApplication.java
 D:\java-code\shortlink\admin\src\main\java\com\example\shortlink\admin\common\serialize\PhoneDesensitizationSerializer.java
+D:\java-code\shortlink\admin\src\main\java\com\example\shortlink\admin\common\constant\RedisCacheConstant.java
 D:\java-code\shortlink\admin\src\main\java\com\example\shortlink\admin\service\impl\UserServiceImpl.java
 D:\java-code\shortlink\admin\src\main\java\com\example\shortlink\admin\config\MyMetaObjectHandler.java
 D:\java-code\shortlink\admin\src\main\java\com\example\shortlink\admin\service\UserService.java
