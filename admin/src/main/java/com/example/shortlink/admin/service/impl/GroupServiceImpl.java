@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.shortlink.admin.common.biz.user.UserContext;
 import com.example.shortlink.admin.dao.entity.GroupDO;
 import com.example.shortlink.admin.dao.mapper.GroupMapper;
+import com.example.shortlink.admin.dto.req.ShortLinkGroupUpdateReqDTO;
 import com.example.shortlink.admin.dto.resp.ShortLinkGroupRespDTO;
 import com.example.shortlink.admin.service.GroupService;
 import com.example.shortlink.admin.toolkit.RandomStringUtils;
@@ -44,6 +45,18 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, GroupDO> implemen
         List<GroupDO> groupDOList = baseMapper.selectList(queryWrapper);
         return BeanUtil.copyToList(groupDOList, ShortLinkGroupRespDTO.class);
     }
+
+    @Override
+    public void updateGroup(ShortLinkGroupUpdateReqDTO requestParam) {
+        LambdaQueryWrapper<GroupDO> updateWrapper = Wrappers.lambdaQuery(GroupDO.class)
+                .eq(GroupDO::getUsername, UserContext.getUsername())
+                .eq(GroupDO::getDelFlag, 0)
+                .eq(GroupDO::getGid, requestParam.getGid());
+        GroupDO groupDO = new GroupDO();
+        groupDO.setName(requestParam.getName());
+        baseMapper.update(groupDO, updateWrapper);
+    }
+
 
     private boolean hasGid(String gid) {
         LambdaQueryWrapper<GroupDO> queryWrapper = Wrappers.lambdaQuery(GroupDO.class)
