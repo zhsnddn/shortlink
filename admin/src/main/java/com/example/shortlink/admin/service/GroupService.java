@@ -9,4 +9,11 @@ import com.example.shortlink.admin.dao.entity.GroupDO;
 
 public interface GroupService extends IService<GroupDO> {
 
+
+    /**
+     * 新增分组
+     * @param groupName 分组名称
+     */
+    void addGroup(String groupName);
+
 }
