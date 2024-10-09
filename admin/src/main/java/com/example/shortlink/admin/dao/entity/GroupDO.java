@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 分组持久层实体
+ */
 @Data
 @TableName("t_group")
 @Builder
