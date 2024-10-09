@@ -1,6 +1,8 @@
 package com.example.shortlink.project.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.shortlink.project.common.database.BaseDO;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,7 +12,7 @@ import java.util.Date;
  */
 @TableName("t_link")
 @Data
-public class ShortLinkDO {
+public class ShortLinkDO extends BaseDO {
 
     /**
      * id
@@ -70,20 +72,6 @@ public class ShortLinkDO {
     /**
      * 描述
      */
+    @TableField(exist = false)
     private String describe;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
-
-    /**
-     * 删除标识 0：未删除 1：已删除
-     */
-    private Integer delFlag;
 }
