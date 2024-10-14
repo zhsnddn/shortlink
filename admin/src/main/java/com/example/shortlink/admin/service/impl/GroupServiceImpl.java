@@ -21,20 +21,20 @@ import java.util.List;
 @Slf4j
 public class GroupServiceImpl extends ServiceImpl<GroupMapper, GroupDO> implements GroupService {
 
-        @Override
-        public void addGroup(String groupName) {
-            String gid;
-            do {
-                gid = RandomStringUtils.generateRandomString(6);
-            } while (!hasGid(gid));
-            GroupDO groupDO = GroupDO.builder()
-                    .gid(gid)
-                    .sortOrder(0)
-                    .username(UserContext.getUsername())
-                    .name(groupName)
-                    .build();
-            baseMapper.insert(groupDO);
-        }
+    @Override
+    public void addGroup(String groupName) {
+        String gid;
+        do {
+            gid = RandomStringUtils.generateRandomString(6);
+        } while (!hasGid(gid));
+        GroupDO groupDO = GroupDO.builder()
+                .gid(gid)
+                .sortOrder(0)
+                .username(UserContext.getUsername())
+                .name(groupName)
+                .build();
+        baseMapper.insert(groupDO);
+    }
 
     @Override
     public List<ShortLinkGroupRespDTO> listGroup() {
@@ -92,4 +92,6 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, GroupDO> implemen
         GroupDO hasGroupFlag = baseMapper.selectOne(queryWrapper);
         return hasGroupFlag == null;
     }
+
+
 }
