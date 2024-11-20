@@ -76,11 +76,11 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, GroupDO> implemen
                     .sortOrder(Integer.valueOf(each.getSortOrder()))
                     .gid(each.getGid())
                     .build();
-            LambdaQueryWrapper<GroupDO> updateWapper = Wrappers.lambdaQuery(GroupDO.class)
+            LambdaQueryWrapper<GroupDO> updateWrapper = Wrappers.lambdaQuery(GroupDO.class)
                     .eq(GroupDO::getUsername, UserContext.getUsername())
                     .eq(GroupDO::getGid, each.getGid())
                     .eq(GroupDO::getDelFlag, 0);
-            baseMapper.update(groupDO, updateWapper);
+            baseMapper.update(groupDO, updateWrapper);
         });
     }
 
